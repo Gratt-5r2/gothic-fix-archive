@@ -1954,6 +1954,14 @@
     #patch [Fix NPC_KnowsInfo]
         JMP(0x006652B8, 0x006652C4)
     #/patch
+	
+	#patch [vfx_first_frame_fix]
+		#assembler [0x0048A621]
+			mov ecx, esi
+			call 0x0048E780
+			orgcode
+		#/assembler
+	#/patch
 #/engine
 
 #engine [G1A]
@@ -4760,4 +4768,12 @@
             orgcode
         #/assembler
     #/patch
+	
+	#patch [vfx_first_frame_fix]
+		#assembler [0x0049265B]
+			mov ecx, esi
+			call 0x00497550
+			orgcode
+		#/assembler
+	#/patch
 #/engine
